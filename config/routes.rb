@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get "noticeboard/index"
+  get "noticeboard/new"
+  get "noticeboard/create"
+  get "noticeboard/show"
   devise_for :users
+
+  root "noticeboard#index" # notice board is the home page
+  resources :sticker_notes, only: [:new, :create, :destroy]
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

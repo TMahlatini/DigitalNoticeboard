@@ -1,0 +1,2 @@
+module NoticeboardHelper
+end

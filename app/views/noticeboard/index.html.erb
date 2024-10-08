@@ -1,0 +1,13 @@
+<h1>Noticeboard</h1>
+
+<%= link_to 'Create New Sticker Note', new_sticker_note_path, class: 'btn btn-primary' %>
+
+<div class="sticker-notes-container">
+  <% @sticker_notes.each do |note| %>
+    <div class="sticker-note">
+      <h3><%= link_to note.title, sticker_note_path(note) %></h3>
+      <p><%= truncate(note.content, length: 100) %></p>
+      <small>Posted by <%= note.user.email %> on <%= note.created_at.strftime("%B %d, %Y") %></small>
+    </div>
+  <% end %>
+</div>

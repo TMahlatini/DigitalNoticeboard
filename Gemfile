@@ -21,6 +21,9 @@ gem "jbuilder"
 
 gem 'devise' # for authentication 
 
+gem 'letter_opener'
+
+
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
