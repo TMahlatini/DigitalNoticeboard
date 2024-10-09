@@ -15,9 +15,21 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
+
   </head>
 
   <body>
+    <header>
+      <nav>
+        <% if user_signed_in? %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false },class: 'btn btn-secondary' %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
+        <% end %>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>

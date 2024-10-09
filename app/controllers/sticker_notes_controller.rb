@@ -4,6 +4,16 @@ class StickerNotesController < ApplicationController
     def new
       @sticker_note = StickerNote.new
     end
+
+    def destroy
+        @sticker_note = current_user.sticker_notes.find(params[:id])
+        if @sticker_note.destroy
+          redirect_to root_path, notice: 'Sticky note successfully deleted.'
+        else
+          redirect_to root_path, alert: 'Error deleting sticky note.'
+        end
+      end
+      
   
     def create
       @sticker_note = current_user.sticker_notes.build(sticker_note_params)

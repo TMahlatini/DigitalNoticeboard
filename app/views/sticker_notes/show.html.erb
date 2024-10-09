@@ -2,7 +2,9 @@
 
 <p><%= @sticker_note.content %></p>
 
-<small>Contact: <%= @sticker_note.user.email %></small><br>
+<small>Contact: <%= @sticker_note.user.sender_email %></small><br>
 <small>Posted on: <%= @sticker_note.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+
+
 
 <%= link_to 'Back to Noticeboard', root_path, class: 'btn btn-secondary' %>

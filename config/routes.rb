@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
-  get "noticeboard/index"
+  root "pages#landing" # notice board is the home page
+
+  devise_for :users
+  devise_scope :user do
+    delete 'users/sign_out', to:'devise/sessions#destroy'
+  end
+
+  #root "noticeboard#index" # notice board is the home page
+  authenticate :user do
+    get "noticeboard", to: "noticeboard#index", as: :authenticated_root
+    resources :noticeboard, only: [:index, :new, :create, :show]
+    resources :sticker_notes, only: [:new, :create, :destroy]
+  end
+
   get "noticeboard/new"
   get "noticeboard/create"
   get "noticeboard/show"
-  devise_for :users
-
-  root "noticeboard#index" # notice board is the home page
+  
   resources :sticker_notes, only: [:new, :create, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

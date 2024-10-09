@@ -1,0 +1,31 @@
+/* Devise Form Styling */
+.devise-form-container {
+    max-width: 400px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .devise-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .devise-form-container .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .devise-form-container .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .devise-form-container .btn {
+    width: 100%;
+  }
+  
