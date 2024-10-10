@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "pages#landing" # notice board is the home page
+  root "pages#landing" # the landing is the login page
 
   devise_for :users
   devise_scope :user do
@@ -13,9 +13,6 @@ Rails.application.routes.draw do
     resources :sticker_notes, only: [:new, :create, :destroy]
   end
 
-  get "noticeboard/new"
-  get "noticeboard/create"
-  get "noticeboard/show"
   
   resources :sticker_notes, only: [:new, :create, :destroy]
 

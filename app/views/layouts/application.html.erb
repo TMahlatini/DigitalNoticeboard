@@ -20,16 +20,17 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <% if user_signed_in? %>
-          <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false },class: 'btn btn-secondary' %>
-        <% else %>
-          <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
-        <% end %>
-      </nav>
-    </header>
-
+    <head></head>
+    <nav class="navbar <%= 'navbar-login' if current_page?(new_user_session_path) %>">
+      <% if user_signed_in? && !current_page?(new_user_session_path) %>
+        <%= link_to 'Add Sticky Note', new_sticker_note_path, class: 'btn btn-primary' %>
+      <% end %>
+      <span class="navbar-title">DigitalNoticeBoard</span>
+      <% if user_signed_in? %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-secondary' %>   
+      <% end %>
+    </nav>
+  
     <%= yield %>
   </body>
 </html>

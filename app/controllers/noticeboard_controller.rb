@@ -5,14 +5,4 @@ class NoticeboardController < ApplicationController
     @sticker_notes = StickerNote.all.order(created_at: :desc)  #retrieves all the sticker notes from the database and orders them by the time they were created
   end
 
-
-
-  def new
-  end
-
-  def create
-  end
-
-  def show
-  end
 end

@@ -33,6 +33,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin-top: 10px;
   }
   
   .sticker-note {
@@ -143,10 +144,6 @@ body {
   
   /* Button Placement for Creating a New Sticky Note */
   .create-sticky-note-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1000;
     background-color: #007bff;
     color: white;
     padding: 10px 15px;
@@ -154,6 +151,7 @@ body {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
+    text-decoration: none;
   }
   
   .create-sticky-note-btn:hover {
@@ -172,4 +170,41 @@ body {
   nav .btn {
     margin-left: 10px;
   }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
   
+  .navbar-login {
+    justify-content: center;
+  }
+
+  .navbar-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+  }
+
+  .navbar-placeholder {
+    width: 120px; /* Adjust this value to match the width of your buttons */
+  }
+
+  /* Adjust the main content to account for the navbar */
+  body {
+    padding-top: 60px; /* Adjust this value based on your navbar height */
+
+  }
+
+  /* Remove the h1 from the index page since we now have the title in the navbar */
+
