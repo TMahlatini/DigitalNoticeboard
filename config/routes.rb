@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   root "pages#landing" # the landing is the login page
 
@@ -13,7 +16,10 @@ Rails.application.routes.draw do
     resources :sticker_notes, only: [:new, :create, :show]
   end
 
-
+  # Mount Sidekiq web interface
+  authenticate :user, lambda { |u| u.admin? } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
