@@ -10,9 +10,12 @@
     <%= yield :head %>
 
     <link rel="manifest" href="/manifest.json">
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    
+    <!-- Add or update these lines -->
+    <link rel="icon" type="image/png" href="/logo.png">
+   
+    <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
+    
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= javascript_include_tag 'application', 'data-turbo-track': 'reload' %>
@@ -20,12 +23,8 @@
   </head>
 
   <body>
-    <head></head>
     <nav class="navbar <%= 'navbar-login' if current_page?(new_user_session_path) %>">
-      <% if user_signed_in? && !current_page?(new_user_session_path) %>
-        <%= link_to 'Add Sticky Note', new_sticker_note_path, class: 'btn btn-primary' %>
-      <% end %>
-      <span class="navbar-title">DigitalNoticeBoard</span>
+      <span class="navbar-title">NoticeBoard</span>
       <% if user_signed_in? %>
         <%= button_to 'Logout', destroy_user_session_path, method: :delete, data: { turbo: false }, class: 'btn btn-secondary' %>   
       <% end %>

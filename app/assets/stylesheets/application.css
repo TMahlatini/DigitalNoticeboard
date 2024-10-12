@@ -208,3 +208,37 @@ body {
 
   /* Remove the h1 from the index page since we now have the title in the navbar */
 
+/* ... existing styles ... */
+
+.sticker-note-full {
+  background-color: #fffae6;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sticker-note-full h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.sticker-note-full p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.sticker-note-full small {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #999;
+}
+
+.sticker-note-full .btn {
+  margin-right: 10px;
+}

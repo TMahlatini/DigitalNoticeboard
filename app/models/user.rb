@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def self.create_admin_user
     find_or_create_by(email: '***REMOVED***') do |user|
-      user.password = 'psswrd'
+      user.password = '***REMOVED***'
       user.skip_confirmation!
       user.confirmed_at = Time.now
       user.admin = true

@@ -1,10 +1,11 @@
-<h1><%= @sticker_note.title %></h1>
-
-<p><%= @sticker_note.content %></p>
-
-<small>Contact: <%= @sticker_note.user.sender_email %></small><br>
-<small>Posted on: <%= @sticker_note.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
-
-
-
-<%= link_to 'Back to Noticeboard', root_path, class: 'btn btn-secondary' %>
+<div class="sticker-note-full">
+  <h2><%= @sticker_note.title %></h2>
+  <p><%= @sticker_note.content %></p>
+  <small>Posted by <%= @sticker_note.sender_email %> on <%= @sticker_note.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+  
+  <%= link_to 'Back to Noticeboard', root_path, class: 'btn btn-secondary' %>
+  
+  <% if current_user&.admin? %>
+    <%= button_to 'Delete', sticker_note_path(@sticker_note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' }, class: 'btn btn-danger' %>
+  <% end %>
+</div>
