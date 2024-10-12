@@ -8,4 +8,17 @@ class User < ApplicationRecord
 
   has_many :sticker_notes, dependent: :destroy
 
+  def self.create_admin_user
+    find_or_create_by(email: '***REMOVED***') do |user|
+      user.password = 'psswrd'
+      user.skip_confirmation!
+      user.confirmed_at = Time.now
+      user.admin = true
+    end
+  end
+
+  def self.admin_user
+    find_by(admin: true) || create_admin_user
+  end
+
 end

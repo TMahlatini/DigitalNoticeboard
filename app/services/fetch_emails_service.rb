@@ -22,7 +22,7 @@ class FetchEmailsService
           content: email['body'],
           email_thread_id: email['message_id'],
           sender_email: email['sender'],
-          user: User.first # Assign to a default user or handle it based on your logic
+          user: User.admin_user 
         )
         puts "Created sticky note for email: #{email['subject']}"
       end

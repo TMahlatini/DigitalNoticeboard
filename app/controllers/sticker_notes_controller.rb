@@ -1,12 +1,13 @@
 class StickerNotesController < ApplicationController
-    before_action :authenticate_user!
+    #before_action :authenticate_user!
+    before_action :admin_user_only, only: [:destroy]
   
     def new
       @sticker_note = StickerNote.new
     end
 
     def destroy
-        @sticker_note = current_user.sticker_notes.find(params[:id])
+        @sticker_note = StickerNote.find(params[:id])
         if @sticker_note.destroy
           redirect_to root_path, notice: 'Sticky note successfully deleted.'
         else
@@ -16,11 +17,12 @@ class StickerNotesController < ApplicationController
       
   
     def create
-      @sticker_note = current_user.sticker_notes.build(sticker_note_params)
+      @sticker_note = StickerNote.new(sticker_note_params)
+      @sticker_note.user = User.admin_user
       if @sticker_note.save
         redirect_to root_path, notice: 'Sticker note created successfully!'
       else
-        render :new, alert: 'Error creating sticker note. Please try again.'
+        render :new, status: :unprocessable_entity
       end
     end
   
@@ -31,7 +33,14 @@ class StickerNotesController < ApplicationController
     private
   
     def sticker_note_params
-      params.require(:sticker_note).permit(:title, :content)
+      params.require(:sticker_note).permit(:title, :content, :sender_email)
+    end
+
+    def admin_user_only
+      unless current_user.admin?
+        redirect_to root_path, alert: 'You are not authorized to perform this action.'
+      end
     end
   end
+
   
