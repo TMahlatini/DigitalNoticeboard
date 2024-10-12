@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_many :sticker_notes, dependent: :destroy
 
   def self.create_admin_user
-    find_or_create_by(email: '***REMOVED***') do |user|
-      user.password = '***REMOVED***'
+    find_or_create_by(email: ENV['ADMIN_EMAIL']) do |user|
+      user.password = ENV['ADMIN_PASSWORD']
       user.skip_confirmation!
       user.confirmed_at = Time.now
       user.admin = true

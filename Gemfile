@@ -73,3 +73,5 @@ end
 
 gem 'sidekiq'
 gem 'sidekiq-cron'
+
+gem 'dotenv-rails', groups: [:development, :test]
