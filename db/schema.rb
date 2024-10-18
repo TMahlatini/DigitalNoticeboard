@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_12_004715) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_18_174246) do
   create_table "sticker_notes", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_12_004715) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.boolean "admin", default: false
+    t.string "unconfirmed_email"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

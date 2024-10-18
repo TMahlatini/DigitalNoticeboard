@@ -22,3 +22,15 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+commands to run jobs manually:
+
+   rails email:create_sticky_notes 
+
+
+
+checking logs: heroku logs --tail --app <app-name>
+
+
+

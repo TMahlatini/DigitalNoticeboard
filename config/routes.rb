@@ -5,6 +5,13 @@ Rails.application.routes.draw do
   devise_for :users
   devise_scope :user do
     delete 'users/sign_out', to:'devise/sessions#destroy'
+    get 'users/sign_in', to: 'devise/sessions#new'
+    get 'users/sign_up', to: 'devise/registrations#new'
+    get 'users/password/new', to: 'devise/passwords#new'
+    get 'users/password/edit', to: 'devise/passwords#edit'
+    get 'users/confirmation', to: 'devise/confirmations#show'
+    get 'users/confirmation/new', to: 'devise/confirmations#new'
+    get 'users/unlock/new', to: 'devise/unlocks#new'
   end
 
   #root "noticeboard#index" # notice board is the home page
