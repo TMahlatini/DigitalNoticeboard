@@ -11,7 +11,7 @@ class User < ApplicationRecord
   def self.create_admin_user
     find_or_create_by(email: Rails.application.credentials.admin_email) do |user|
       user.password = Rails.application.credentials.admin_password
-      user.skip_confirmation!
+      user.skip_confirmation! if user.respond_to?(:skip_confirmation!)
       user.confirmed_at = Time.now
       user.admin = true
     end
