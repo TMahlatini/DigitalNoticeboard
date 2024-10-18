@@ -20,7 +20,10 @@ gem "jbuilder"
 
 gem 'mail' # handling emails
 
-gem 'devise' # for authentication 
+gem 'devise' # for authentication
+
+gem 'whenever', require: false # for scheduling tasks
+
 
 #gem 'letter_opener'
 
@@ -68,10 +71,6 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg',  '>= 0.18', '< 2.0'
 end
 
-gem 'sidekiq'
-gem 'sidekiq-cron'
-
-gem 'dotenv-rails', groups: [:development, :test]

@@ -1,31 +1,72 @@
 /* Devise Form Styling */
 .devise-form-container {
     max-width: 400px;
-    margin: 60px auto;
+    margin: 80px auto;
     background-color: #ffffff;
-    padding: 30px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   }
   
   .devise-form-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
   }
   
   .devise-form-container .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
   
   .devise-form-container .form-control {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .devise-form-container .form-control:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
   }
   
   .devise-form-container .btn {
     width: 100%;
+    padding: 12px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
+  .devise-form-container .btn:hover {
+    background-color: #3a7bc8;
+  }
+  
+  /* Additional styles for links and other elements */
+  .devise-form-container a {
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .devise-form-container a:hover {
+    color: #3a7bc8;
+    text-decoration: underline;
+  }
+  
+  .devise-form-container .form-footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+  }

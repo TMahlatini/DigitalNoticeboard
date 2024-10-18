@@ -1,7 +1,8 @@
 require 'http'
 
 class FetchEmailsService
-  FLASK_API_URL = 'http://127.0.0.1:5000/fetch-emails'
+  FLASK_API_URL = Rails.application.credentials.fetch_emails_url
+
 
   def self.fetch_and_create_sticky_notes
     response = HTTP.get(FLASK_API_URL)
