@@ -31,7 +31,6 @@ class FetchEmailsService
           begin
             requested_date = Date.parse(requested_date_string)
           rescue Date::Error
-            # Handle parsing errors, e.g., log the error or set a default date
             puts "Error parsing date: #{requested_date_string}"
           end
         end
@@ -40,12 +39,15 @@ class FetchEmailsService
         location_request = (email['subject'] + email['body']).match?(regex_location_request)
         
 
+        # Check if email['date'] is present before parsing
+        date_sent = email['date'] ? DateTime.parse(email['date']) : nil
+
         StickerNote.create!(
           title: email['subject'],
           content: email['body'],
           email_thread_id: email['message_id'],
           sender_email: email['sender'],
-          date_sent: DateTime.parse(email['date']),
+          date_sent: date_sent,
           user: User.admin_user,
           requested_date: requested_date,
           requesting_ride: requesting_ride_true,
