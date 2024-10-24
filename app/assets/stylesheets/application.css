@@ -47,9 +47,15 @@ body {
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
   }
+
+  .sticker-note-requested {
+    background-color: #e6ffe6;
+  }
   
   .sticker-note:hover {
     transform: translateY(-5px);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    
   }
   
   .sticker-note h3 {

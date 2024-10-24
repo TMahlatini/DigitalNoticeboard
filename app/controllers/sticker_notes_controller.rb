@@ -4,6 +4,7 @@ class StickerNotesController < ApplicationController
   
     def new
       @sticker_note = StickerNote.new
+      
     end
 
     def destroy
@@ -29,11 +30,15 @@ class StickerNotesController < ApplicationController
     def show
       @sticker_note = StickerNote.find(params[:id])
     end
+
+    def expired_notes
+      @expired_notes = StickerNote.where("date_sent < ? OR (requested_date IS NOT NULL AND requested_date < ?)", 1.month.ago, Date.today)
+    end
   
     private
   
     def sticker_note_params
-      params.require(:sticker_note).permit(:title, :content, :sender_email)
+      params.require(:sticker_note).permit(:title, :content, :sender_email, :date_sent, :requested_date, :requesting_ride, :location_request)
     end
 
     def admin_user_only

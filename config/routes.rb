@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   authenticate :user do
     get "noticeboard", to: "noticeboard#index", as: :authenticated_root
     resources :noticeboard, only: [:index, :new, :create, :show]
-    resources :sticker_notes, only: [:new, :create, :show]
+    resources :sticker_notes, only: [:new, :create, :show, :destroy]
+  
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

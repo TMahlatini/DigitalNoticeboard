@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_18_174246) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_24_071656) do
   create_table "sticker_notes", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -19,6 +19,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_18_174246) do
     t.datetime "updated_at", null: false
     t.string "email_thread_id"
     t.string "sender_email"
+    t.datetime "date_sent"
+    t.date "requested_date"
+    t.boolean "requesting_ride"
+    t.string "location_request"
     t.index ["user_id"], name: "index_sticker_notes_on_user_id"
   end
 

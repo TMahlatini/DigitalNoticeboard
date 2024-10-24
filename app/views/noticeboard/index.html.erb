@@ -1,9 +1,13 @@
 <div class="sticker-notes-container">
   <% @sticker_notes.each do |note| %>
-    <div class="sticker-note">
+    <% if note.requesting_ride %> 
+      <div class="sticker-note sticker-note-requested">
+    <% else %>
+      <div class="sticker-note">
+    <% end %>
       <h3><%= link_to note.title, sticker_note_path(note) %></h3>
       <p><%= truncate(note.content, length: 100) %></p>
-      <small>Posted by <%= note.sender_email %> on <%= note.created_at.strftime("%B %d, %Y") %></small>
+      <small>Posted by <%= note.sender_email %> on <%= note.date_sent.strftime("%B %d, %Y") %></small>
       
       <% if current_user&.admin? %>
         <%= button_to 'Delete', sticker_note_path(note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' }, class: 'delete-button' %>

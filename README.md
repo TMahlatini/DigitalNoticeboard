@@ -1,36 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a simple Noticeboard app that allows users to create and view emails from listservs as sticky notes.
+The app uses a Flask API to fetch emails from listservs and a Rails backend to store and display the emails as sticky notes.
 
 
-commands to run jobs manually:
-
-   rails email:create_sticky_notes 
-
-
-
-checking logs: heroku logs --tail --app <app-name>
 
 
 
