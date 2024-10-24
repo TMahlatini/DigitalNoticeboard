@@ -3,10 +3,10 @@ require 'date'
 
 class FetchEmailsService
   FLASK_API_URL = Rails.application.credentials.fetch_emails_url
-  DEVELOPMENT_URL = "http://127.0.0.1:5002/fetch-emails"
+
 
   def self.fetch_and_create_sticky_notes
-    response = HTTP.get(DEVELOPMENT_URL)
+    response = HTTP.get(FLASK_API_URL)
     email_data = JSON.parse(response.body.to_s)
 
     email_data.each do |email|
