@@ -1,7 +1,7 @@
 <div class="sticker-note-full">
   <h2><%= @sticker_note.title %></h2>
   <p><%= @sticker_note.content %></p>
-  <small>Posted by <%= @sticker_note.sender_email %> on <%= @sticker_note.created_at.strftime("%B %d, %Y at %I:%M %p") %></small>
+  <small>Posted by <%= @sticker_note.sender_email %> on <%= @sticker_note.date_sent.strftime("%B %d, %Y at %I:%M %p") %></small>
   
   <%= link_to 'Back to Noticeboard', root_path, class: 'btn btn-secondary' %>
   
