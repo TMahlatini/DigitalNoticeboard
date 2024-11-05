@@ -65,5 +65,9 @@ rails server
 
 This is a work in progress as part of a Rails learning journey. I welcome any contributions or suggestions!
 
+### License: Apache 2.0
+
+
+
 
 
