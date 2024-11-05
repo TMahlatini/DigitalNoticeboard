@@ -12,7 +12,7 @@ This application serves as a digital notice board where announcements are displa
 - **Ride Request Detection**: Automatically detects and tags:
   - Ride requests
   - Locations mentioned
-  - Requested dates
+  - Requested dates (not perfect)
 - **User Authentication**: Uses Devise for secure user management
   - Email confirmation required
   - Admin privileges for content management
