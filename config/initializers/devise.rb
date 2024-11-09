@@ -318,5 +318,7 @@ Devise.setup do |config|
   # config/initializers/devise.rb
   config.timeout_in = 30.minutes
 
+  config.omniauth :google_oauth2, Rails.application.credentials.GOOGLE_CLIENT_ID, Rails.application.credentials.GOOGLE_CLIENT_SECRET
+
 
 end

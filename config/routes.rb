@@ -2,7 +2,7 @@
 Rails.application.routes.draw do
   root "pages#landing" # the landing is the login page
 
-  devise_for :users
+  devise_for :user, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
     delete 'users/sign_out', to:'devise/sessions#destroy'
     get 'users/sign_in', to: 'devise/sessions#new'

@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :timeoutable, :confirmable
+         :recoverable, :rememberable, :validatable, :timeoutable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :email, format: {with: /\A[\w+\-.]+@whitman\.edu\z/, message: "must be a Whitman College email address" }
 
@@ -19,6 +19,15 @@ class User < ApplicationRecord
 
   def self.admin_user
     find_by(admin: true) || create_admin_user
+  end
+
+  def self.from_google(user_params)
+    create_with(
+      provider: user_params[:provider],
+      uid: user_params[:uid],
+      email: user_params[:email],
+      password: Devise.friendly_token[0, 20]
+    ).find_or_create_by(email: user_params[:email])
   end
 
 end

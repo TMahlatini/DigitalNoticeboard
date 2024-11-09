@@ -22,7 +22,11 @@ gem "jbuilder"
 
 gem 'mail' # handling emails
 
-gem 'devise' # for authentication
+# Authentication gems
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 gem 'whenever', require: false # for scheduling tasks
 

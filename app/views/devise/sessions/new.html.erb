@@ -26,8 +26,18 @@
     <% end %>
 
     <%= f.submit "Log in", class: "btn" %>
+   
   <% end %>
-  
+
+  <div class="form-group" style="margin-top: 10px;">
+    <% if devise_mapping.omniauthable? %>
+      <% resource_class.omniauth_providers.each do |provider| %>
+      
+        <%= button_to "Sign in with Google", omniauth_authorize_path(resource_name, provider), data: { turbo: false }, class: "btn" %>
+      <% end %>
+    <% end %>
+  </div>
+
   <div class="form-footer">
     <%= render "devise/shared/links" %>
   </div>
