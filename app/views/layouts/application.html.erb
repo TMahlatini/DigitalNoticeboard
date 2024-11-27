@@ -23,6 +23,7 @@
   </head>
 
   <body>
+
     <nav class="navbar <%= 'navbar-login' if current_page?(new_user_session_path) %>">
       <span class="navbar-title">NoticeBoard</span>
       <% if user_signed_in? %>
