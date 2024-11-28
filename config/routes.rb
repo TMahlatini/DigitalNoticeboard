@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   #root "noticeboard#index" # notice board is the home page
   authenticate :user do
     get "noticeboard", to: "noticeboard#index", as: :authenticated_root
+    get "for_sale", to: "noticeboard#for_sale", as: :for_sale
+    get "housing", to: "noticeboard#housing", as: :housing
+    get "rides", to: "noticeboard#index", as: :rides
     resources :noticeboard, only: [:index, :new, :create, :show]
     resources :sticker_notes, only: [:new, :create, :show, :destroy]
   

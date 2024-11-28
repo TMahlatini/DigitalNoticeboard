@@ -6,5 +6,15 @@ class NoticeboardController < ApplicationController
 
   end
 
+  def for_sale
+    render :forsale
+  end
+
+  def housing
+    render :housing
+  end
+
+
+
   
 end
