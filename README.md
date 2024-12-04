@@ -21,6 +21,14 @@ This application serves as a digital notice board where announcements are displa
   - Admin users can delete sticky notes
   - Sticky notes display sender's email and posting date
 
+
+## Screenshots of the app
+![alt text](docs/login.png)
+![alt text](docs/noticeboard.png)
+![alt text](docs/stickynote.png)
+
+
+
 ## Technical Details
 
 ### Dependencies
