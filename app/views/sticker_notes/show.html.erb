@@ -4,6 +4,10 @@
   <small>Posted by <%= @sticker_note.sender_email %> on <%= @sticker_note.date_sent.strftime("%B %d, %Y at %I:%M %p") %></small>
   
   <%= link_to 'Back to Noticeboard', root_path, class: 'btn btn-secondary' %>
+
+  <button onclick="window.location.href='mailto:<%= @sticker_note.sender_email %>?subject=Re: <%= @sticker_note.title %>'" class="btn btn-secondary">
+      Reply
+    </button>
   
   <% if current_user&.admin? %>
     <%= button_to 'Delete', sticker_note_path(@sticker_note), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' }, class: 'btn btn-danger' %>
